@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
+const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
 // Load Config File
@@ -15,14 +16,18 @@ connectDB();
 
 const app = express();
 
+// Body parser
+app.use(express.json());
+
 // Dev logging middelware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
 // Mount routes
-
 app.use('/api/v1/services', services);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 

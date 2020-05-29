@@ -20,26 +20,26 @@ const ServiceSchema = new mongoose.Schema({
   },
   address: {
     type: String,
-    required: true,
+    required: [true, 'Please add an address'],
   },
-  location: {
-    type: {
-      type: String,
-      enum: ['Point'],
-      required: true,
-    },
-    coordinates: {
-      type: [Number],
-      required: true,
-      index: '2dsphere',
-    },
-    formattedAddress: String,
-    street: String,
-    city: String,
-    state: String,
-    zipcode: String,
-    country: String,
-  },
+  // location: {
+  //   type: {
+  //     type: String,
+  //     enum: ['Point'],
+  //     required: true,
+  //   },
+  //   coordinates: {
+  //     type: [Number],
+  //     required: true,
+  //     index: '2dsphere',
+  //   },
+  //   formattedAddress: String,
+  //   street: String,
+  //   city: String,
+  //   state: String,
+  //   zipcode: String,
+  //   country: String,
+  // },
   averageCost: Number,
   available: Boolean,
   averageRating: {
