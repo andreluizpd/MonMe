@@ -4,8 +4,8 @@
   "description": "Projeto para o TCC",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server",
-    "dev": "nodemon server"
+    "prod": "NODE_ENV=production node server",
+    "start": "nodemon server"
   },
   "author": "",
   "license": "ISC",
